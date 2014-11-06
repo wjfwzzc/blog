@@ -1,4 +1,5 @@
 # Site settings
+encoding: UTF-8
 title: the CodeRoom of wjfwzzc
 email: wjfwzzc@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
