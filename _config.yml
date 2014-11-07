@@ -14,3 +14,4 @@ encoding: UTF-8
 markdown: kramdown
 #markdown: redcarpet
 highlighter: pygments
+comments: true
