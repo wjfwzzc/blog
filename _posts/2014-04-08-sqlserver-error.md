@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  那些年学习SQL Server遇到的报错信息
-date:   2014-04-08 01:51:00
-categories: sqlserver
-tags:   sqlserver
+title: 那些年学习SQL Server遇到的报错信息
+date: 2014-04-08 01:51:00
+category: sqlserver
+tags: sqlserver
 comments: true
 ---
 ##No.1
