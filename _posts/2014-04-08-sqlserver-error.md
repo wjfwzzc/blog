@@ -4,6 +4,7 @@ title:  那些年学习SQL Server遇到的报错信息
 date:   2014-04-08 01:51:00
 categories: sqlserver
 tags:   sqlserver
+comments: true
 ---
 ##No.1
 初次接触SQL Server，在建立一个新表并设置主键之后保存，发现SQL Server提示“不允许保存更改”，因为“您所做的更改要求删除并重新创建以下表”。
