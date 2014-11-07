@@ -1,10 +1,9 @@
 # Site settings
 title: the CodeRoom of wjfwzzc
 description: "他的国，还是他的棺椁"
-baseurl: "/blog" # the subpath of your site, e.g. /blog/
 url: "http://wjfwzzc.github.io" # the base hostname & protocol for your site
 #url: "wjfwzzc.me" # the base hostname & protocol for your site
-permalink: /posts/:title
+permalink: posts/:title
 email: wjfwzzc@gmail.com
 facebook_username: wjfwzzc
 twitter_username: wjfwzzc
