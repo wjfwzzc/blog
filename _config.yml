@@ -1,16 +1,16 @@
 # Site settings
-encoding: UTF-8
 title: the CodeRoom of wjfwzzc
-email: wjfwzzc@gmail.com
-description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+description: "他的国，还是他的棺椁"
 baseurl: "/blog" # the subpath of your site, e.g. /blog/
 url: "http://wjfwzzc.github.io" # the base hostname & protocol for your site
+#url: "wjfwzzc.me" # the base hostname & protocol for your site
+permalink: /posts/:title
+email: wjfwzzc@gmail.com
 facebook_username: wjfwzzc
 twitter_username: wjfwzzc
 github_username:  wjfwzzc
 
 # Build settings
-markdown: kramdown
+encoding: UTF-8
+markdown: redcarpet
+highlighter: pygments
