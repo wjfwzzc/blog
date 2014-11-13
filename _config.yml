@@ -11,4 +11,8 @@ github_username:  wjfwzzc
 
 # Build settings
 encoding: UTF-8
-markdown: rdiscount
+markdown: kramdown
+#markdown: redcarpet
+#redcarpet:
+#    extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "strikethrough", "superscript", "with_toc_data", "highlight", "prettify"]
+#markdown: rdiscount
