@@ -25,7 +25,8 @@ comments: true
 目前Damocles已有的最短路板子速度上已经比较快，基本不会再改了。贴出来供参考。
 
 建图：
-{% highlight c++ linenos %}struct graph {
+{% highlight c++ linenos %}
+struct graph {
     int tot,head[MAXN];
     int to[MAXM],next[MAXM],len[MAXM];
     void init() {
@@ -38,10 +39,12 @@ comments: true
         next[tot]=head[x];
         head[x]=tot++;
     }
-} g;{% endhighlight %}
+} g;
+{% endhighlight %}
 
 Dijkstra+priority_queue+邻接表，邻接矩阵的在此基础上随便改改就成：
-{% highlight c++ linenos %}int dist[MAXM];
+{% highlight c++ linenos %}
+int dist[MAXM];
 void dijkstra(int src) {
     memset(dist,0x3f,sizeof(dist));
     dist[src]=0;
@@ -60,10 +63,12 @@ void dijkstra(int src) {
             }
         }
     }
-}{% endhighlight %}
+}
+{% endhighlight %}
 
 SPFA+SLF+LLL+邻接表，这个就别改邻接矩阵了，太慢：
-{% highlight c++ linenos %}int dist[MAXM];
+{% highlight c++ linenos %}
+int dist[MAXM];
 bool inque[MAXM];
 void spfa(int src) {
     memset(dist,0x3f,sizeof(dist));
@@ -99,6 +104,7 @@ void spfa(int src) {
             }
         }
     }
-}{% endhighlight %}
+}
+{% endhighlight %}
 
 基本上比赛能用上的就这两份板子了，根据情况改图或增减优化即可。通常来讲SPFA不加SLF和LLL优化也够用了。
