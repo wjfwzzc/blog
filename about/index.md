@@ -14,4 +14,5 @@ title: About
 但人生总要有一点追求，才能有一点亮色。
 
 否则，他的国，到底还是他的棺椁。
+
 <iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=3846630106&verifier=b0dba9ca&dpc=1"></iframe>
