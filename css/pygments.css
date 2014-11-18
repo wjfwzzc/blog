@@ -61,7 +61,7 @@ pre > code {
 :not(pre) > code {
   padding: .25em .5em .1em;
   color: $inline-code-fg;
-  font: .85em Consolas, Monaco, 'Andale Mono', monospace;
+  font: .85em 'Inconsolata', 'Consolas', 'Deja Vu Sans Mono', 'Monaco', 'Andale Mono', 'Ubuntu Mono', 'Courier New', monospace;
   background: $inline-code-bg;
   border: 1px solid $inline-code-bd;
   border-radius: .25em;
