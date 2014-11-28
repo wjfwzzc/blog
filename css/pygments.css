@@ -15,7 +15,7 @@
 
 .post pre {
   padding: 1em;
-  font: .92em/1.5 'Inconsolata', 'Consolas', 'Deja Vu Sans Mono', 'Monaco', 'Andale Mono', 'Ubuntu Mono', 'Courier New', monospace;
+  font: .92em/1.5 Inconsolata, Consolas, 'Deja Vu Sans Mono', Monaco, 'Andale Mono', 'Ubuntu Mono', 'Courier New', monospace;
   border: 1px solid #e5e8ec;
   border-radius: 3px;
   background-color: #49483e;
@@ -58,7 +58,7 @@
 .post :not(pre) > code {
   padding: .25em .5em .1em;
   color: black;
-  font: .85em 'Inconsolata', 'Consolas', 'Deja Vu Sans Mono', 'Monaco', 'Andale Mono', 'Ubuntu Mono', 'Courier New', monospace;
+  font: .85em Inconsolata, Consolas, 'Deja Vu Sans Mono', Monaco, 'Andale Mono', 'Ubuntu Mono', 'Courier New', monospace;
   background: #fafafa;
   border: 1px solid #e5e8ec;
   border-radius: .25em;
