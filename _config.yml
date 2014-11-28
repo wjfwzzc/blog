@@ -11,6 +11,7 @@ github_username:  wjfwzzc
 
 # Build settings
 encoding: UTF-8
+highlighter: pygments
 markdown: kramdown
 #markdown: redcarpet
 #redcarpet:
