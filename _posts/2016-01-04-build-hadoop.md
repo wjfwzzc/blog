@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 一些机器学习算法特点的笔记
-date: 2015-12-05 19:41:03
+title: 搭建Hadoop平台的一些笔记
+date: 2016-01-04 20:12:43
 category: distribute system
 tags: hadoop
 comments: true
@@ -34,7 +34,7 @@ bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.6.3.jar wordco
 程序运行结束后我们运行{% highlight bash %} cat output/* {% endhighlight %}查看一下结果就可以了。
 
 ##配置Hadoop伪分布模式
-运行{% highlight bash %} mkdir tmp hdfs hdfs/name hdfs/data {% endhighlight %}建立若干目录备用。
+运行以下命令建立若干目录备用{% highlight bash %} mkdir tmp hdfs hdfs/name hdfs/data {% endhighlight %}
 
 首先配置HDFS。在`etc/hadoop/core-site.xml`的`configuration`标签中添加如下配置项：
 {% highlight xml linenos %}
@@ -88,9 +88,9 @@ bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.6.3.jar wordco
 
 这里主要定义了本机NameNode和DataNode的状态。
 
-现在可以格式化NameNode了。运行{% highlight bash %} bin/hdfs namenode -format {% endhighlight %}。
+现在可以格式化NameNode了。运行{% highlight bash %} bin/hdfs namenode -format {% endhighlight %}
 
-格式化结束后就可以启动集群了。运行{% highlight bash %} sbin/start-dfs.sh {% endhighlight %}。启动成功后打开`http://localhost:50070/`，你应当可以看到Hadoop的管理界面。
+格式化结束后就可以启动集群了。运行{% highlight bash %} sbin/start-dfs.sh {% endhighlight %}启动成功后打开`http://localhost:50070/`，你应当可以看到Hadoop的管理界面。
 
 这时你也可以运行wordcount测试一下。首先要把文件上传到hdfs上去，后面则是一致的
 {% highlight bash linenos %}
@@ -162,7 +162,7 @@ bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.6.3.jar wordco
 </configuration>
 {% endhighlight %}
 
-接下来就可以启动Yarn了，运行{% highlight bash %} sbin/start-yarn.sh {% endhighlight %}。启动成功后打开`http://localhost:8088/`，你应当可以看到Yarn的管理界面。
+接下来就可以启动Yarn了，运行{% highlight bash %} sbin/start-yarn.sh {% endhighlight %}启动成功后打开`http://localhost:8088/`，你应当可以看到Yarn的管理界面。
 
 这时你运行wordcount，它应当是运行在Yarn上的。运行方式与之前完全一致。
 
