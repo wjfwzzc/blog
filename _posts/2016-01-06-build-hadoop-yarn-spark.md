@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 搭建Hadoop平台的一些笔记
-date: 2016-01-04 20:12:43
+title: 搭建Hadoop+Yarn+Spark平台的一些笔记
+date: 2016-01-06 18:12:43
 category: distribute system
-tags: hadoop
+tags: hadoop, yarn, spark
 comments: true
 ---
 现在搭建Hadoop集群已经没有以前那么麻烦了，以下只是一个简单的记录。环境为Ubuntu 14.04 LTS 64位。
@@ -22,7 +22,7 @@ Hadoop可以从[Apache官网](http://hadoop.apache.org/releases.html)下载，�
 
 所有的配置文件都在`etc/hadoop/`下。配置文件都是xml格式的。
 
-有些主机可能需要做的一步是，在`hadoop-env.sh`中修改`export JAVA_HOME=/usr/lib/jvm/java-8-oracle`。也就是把JDK地址显式地写上。
+有些主机可能需要做的一步是，在`hadoop-env.sh`中修改`export JAVA_HOME=/usr/lib/jvm/java-7-oracle`。也就是把JDK地址显式地写上。
 
 这时应该已经可以在本地模式下运行Hadoop了。我们可以测试一下。
 {% highlight bash linenos %}
@@ -168,5 +168,27 @@ bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.6.3.jar wordco
 
 到此已经搭建起一套完整的Hadoop+Yarn伪分布式集群，已经可以进行日常的Map-Reduce程序开发测试。增加机器只需要修改`etc/hadoop/slaves`文件`，并配置好各机器间的网络配置即可。
 
-##计划中的下一步
-配置Spark，待续。
+##配置Spark
+Spark昨天刚刚出了1.6.0版本，直接从[官网](https://spark.apache.org)下载即可。
+
+下载后解压到用户目录下，将目录更名为`spark`。以下操作的工作目录都为此目录。
+
+首先我们可以跑一个本地任务看一下。运行{% highlight bash %} bin/run-example SparkPi 10 {% endhighlight %}
+在超长的log中我们可以找到一行细小的`Pi is roughly 3.140688`，数字是随机的但应该在3.14左右，说明程序正常运行了。
+
+当然Spark是支持Python接口的。所以还可以这样{% highlight bash %} bin/spark-submit examples/src/main/python/pi.py 10 {% endhighlight %}
+
+接下来要让Spark运行在Yarn上。配置文件都在`conf`目录下，要做的事情很少。首先运行{% highlight bash %} cp spark-env.sh.template spark-env.sh {% endhighlight %}然后修改`spark-env.sh`文件，发现里面需要写的都是一些环境变量而已。
+这里目前只需要添加
+{% highlight bash %}
+export HADOOP_CONF_DIR=/home/wjfwzzc/hadoop/etc/hadoop
+{% endhighlight %}
+
+也就是把hadoop的配置目录填写在这里。然后{% highlight bash %} cp slaves.template slaves {% endhighlight %}
+这个文件和配置Hadoop时一样。由于目前是单机伪分布式，所以这一步并不是必需的。
+
+所以现在可以启动HDFS和Yarn了。之后启动Spark{% highlight bash %} sbin/start-all.sh {% endhighlight %}此时你在浏览器中打开`http://localhost:8080/`应当可以看到Spark的状态。
+
+接下来提交一个任务看看吧。{% highlight bash %} bin/spark-submit --class org.apache.spark.examples.SparkPi --master yarn lib/spark-examples-1.6.0-hadoop2.6.0.jar 10 {% endhighlight %}同样在超长的log中，你应当可以看见类似于`Pi is roughly 3.144564`的输出。这时你打开`http://localhost:8088/cluster/apps/FINISHED`查看完成的任务，应当可以找到刚才提交的任务，`Application Type`应该为`Spark`，`FinalStatus`应该为`SUCCEEDED`。
+
+那么恭喜你配置好了Spark伪分布式模式，该Spark现已运行在之前搭建的Yarn平台上，可以开始你的开发之旅了。
